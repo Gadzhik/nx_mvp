@@ -1,0 +1,7 @@
+# MediaMTX configuration for NX Witness QA Lab
+# RTSP server with path 'camera' configured for FFmpeg streaming
+
+# Paths configuration
+paths:
+  camera:
+    source: publisher
