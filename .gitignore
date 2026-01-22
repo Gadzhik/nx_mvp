@@ -1,0 +1,126 @@
+# =======================
+# Windows
+# =======================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# =======================
+# macOS
+# =======================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# =======================
+# Linux / temp files
+# =======================
+*~
+.nfs*
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# =======================
+# VS Code
+# =======================
+.vscode/
+.history/
+*.code-workspace
+
+# =======================
+# JetBrains / IntelliJ
+# =======================
+*.iml
+.idea/
+out/
+
+# =======================
+# Node / NPM (если есть)
+# =======================
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+# =======================
+# Python (если есть)
+# =======================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+.env
+
+# =======================
+# Docker
+# =======================
+docker-compose.override.yml
+*.log
+*.pid
+tmp/
+tmp-*
+volumes/
+data/
+
+# Docker images / containers (if locally saved)
+*.tar
+*.img
+
+# =======================
+# NX Witness binaries
+# =======================
+nx-binary/*.deb
+nx-binary/*.tar.gz
+nx-binary/*.zip
+
+# =======================
+# Video / Media files
+# =======================
+video-sources/*.mp4
+video-sources/*.mkv
+video-sources/*.avi
+video-sources/*.mov
+
+# =======================
+# RTSP Camera config / temporary
+# =======================
+docker/camera/mediamtx.yml
+docker/camera/*.log
+docker/camera/tmp/
+docker/camera/output/
+
+# =======================
+# Build / Output folders
+# =======================
+build/
+dist/
+out/
+*.exe
+*.dll
+*.class
+*.jar
+
+# =======================
+# Logs
+# =======================
+*.log
+*.out
+*.err
+*.trace
+
+# =======================
+# Misc / temporary
+# =======================
+*.swp
+*.swo
+*.bak
+*.tmp
+*.old
+*.orig
+*.rej

@@ -1,0 +1,54 @@
+services:
+  nx-server:
+    build:
+      context: .
+      dockerfile: docker/server/Dockerfile
+      args:
+        - NX_BINARY_FILE=nxwitness-server-6.2.0.42223-linux_x64-private-prod.deb
+    container_name: nx-witness-server
+    ports:
+      - "7001:7001"
+      - "7002:7002"
+      - "7003:7003"
+    volumes:
+      - nx-data:/opt/networkoptix/mediaserver/data
+    environment:
+      - NX_DB_DIR=/opt/networkoptix/mediaserver/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7001/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    networks:
+      - nx-network
+
+  rtsp-camera:
+    build:
+      context: ./docker/camera
+      dockerfile: Dockerfile
+    container_name: rtsp-camera
+    ports:
+      - "8554:8554"
+    volumes:
+      - ./video-sources:/video-sources:ro
+    environment:
+      - RTSP_PORT=8554
+      - CAMERA_NAME=camera
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "sh", "-c", "pgrep mediamtx && pgrep ffmpeg || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    networks:
+      - nx-network
+
+networks:
+  nx-network:
+    driver: bridge
+
+volumes:
+  nx-data:
